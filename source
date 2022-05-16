@@ -521,6 +521,6 @@ function Library:CreateWindow(titleText)
 end
 
 function Library:Destroy()
-    pcall(function() ModestLib:Destroy() end)
+    ModestLib:Destroy()
 end
 return Library;
