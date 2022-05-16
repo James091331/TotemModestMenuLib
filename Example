@@ -1,0 +1,59 @@
+local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Xv3nm/TotemModestMenuLib/main/source')))()
+
+local Main = library:CreateWindow() -- Create GUI window and add name. If left empty will default to "Totem's Modest Menu Lib v0.1.0"
+--[[ Amazing exmaple below
+
+local Main = library:CreateWindow("Put your script name here") 
+
+--]]
+
+Main:NewLabel("Text Label Example") -- Create text Label/Header
+
+local Tab1 = Main:NewTab("Tab Example") -- Create a new tab
+
+Main:NewButton("Normal Button") -- Create a button
+Main:NewToggle("Normal Toggle",false, -- Create a toggle
+    function(state) -- state = boolean
+        print(tostring(state).." Normal")
+    end)
+Main:NewParagraph("This is a paragraph that I can type and explain my script with without being cucked. I can also edit the font size because this lib is cool like that.",0.069,14,false)
+
+-- [[ Create a paragraph ^^  ]]
+
+
+
+
+Main:NewParagraph("",0.169420) -- Example of how you can use NewParagraph spacing for invisible spacing between elements.
+
+
+
+
+
+Tab1:NewParagraph("Everything that works with Main: works with your tabs! Just use Tab1 or your local name and then the function. E.g. Tab1:NewParagraph('') -- Used to create this",0.069,14,false)
+    
+-- [[ Create a paragraph ^^  ]]
+    
+Main:NewLabel("Dangerous/Warning Examples", true) -- Create a 'dangerous' label/header
+local Tab2 = Main:NewTab("Dangerous Tab Example", true) -- Create a 'dangerous' tab
+    
+    
+Tab2:NewParagraph("Everything that works with Main: works with your tabs! Just use Tab1 or your local name and then the function. E.g. Tab1:NewParagraph('') -- Used to create this",0.069,14,false)
+
+-- [[ Create a paragraph ^^  ]]
+
+
+Main:NewButton("Dangerous Button",function() print('danger will robinson') end,true) -- Create a 'dangerous' button
+
+Main:NewToggle("Dangerous Toggle",false, -- Create a 'dangerous' toggle
+    function(state) -- state = boolean
+        print(tostring(state).." Dangerous")
+    end,true)
+    
+Main:NewParagraph("This is a warning paragraph that I can type and explain a warning about my script. I can still edit the font size even while warning since this lib is cool like that.",0.069,14,true)
+
+-- [[ Create a warning paragraph ^^  ]]
+
+Main:NewParagraph("",0.43) -- Example of how you can use NewParagraph spacing for invisible spacing between elements.
+
+
+Main:NewButton("Destroy GUI",function() Main:Destroy() end)
