@@ -519,5 +519,8 @@ function Library:CreateWindow(titleText)
     
     return innards;
 end
-return Library;
 
+function Library:Destroy()
+    pcall(function() ModestLib:Destroy() end)
+end
+return Library;
