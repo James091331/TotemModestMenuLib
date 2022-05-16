@@ -84,7 +84,7 @@ Example below:
 ]]
 Window:NewButton("Name",function() print('Example') end, false)
 
--- [[
+--[[
 This allows you to place buttons, toggles, labels, paragraphs and more all within the main window of the GUI. 
 Just in case you want to place a label or script outside of a tab.
 ]]
