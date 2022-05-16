@@ -82,6 +82,7 @@ Main:Destroy()
 Anywhere that Tab:NewButton() or some other function is used Window can replace the Tab.
 Example below:
 ]]
+
 Window:NewButton("Name",function() print('Example') end, false)
 
 --[[
