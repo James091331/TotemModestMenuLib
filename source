@@ -50,6 +50,10 @@ function Library:CreateWindow(titleText)
     
     local innards = {}
     
+    function innards:Destroy()
+        ModestLib:Destroy()
+    end
+    
     function innards:NewTab(name,danger)
         local Tab = Instance.new("Frame")
         local UIListLayout = Instance.new("UIListLayout")
@@ -518,9 +522,5 @@ function Library:CreateWindow(titleText)
     end
     
     return innards;
-end
-
-function Library:Destroy()
-    ModestLib:Destroy()
 end
 return Library;
