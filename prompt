@@ -9,14 +9,14 @@ prompt:updateButtons({{
    Text = "<3",
    Callback = function() prompt:_close()
       pcall(function()
-           _G.radiowaveswhyhaveidonethis = true
+           getgenv().radiowaveswhyhaveidonethis = true
        end)
    end,
 }, {
    Text = "<3",
    Callback = function() prompt:_close() 
        pcall(function()
-           _G.radiowaveswhyhaveidonethis = true
+           getgenv().radiowaveswhyhaveidonethis = true
        end)
    end,
    Primary = true
