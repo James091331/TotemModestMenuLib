@@ -66,7 +66,7 @@ Default Index = The index number of default selections
 Function = The code to execute every time the selection is changed. Returns with selection ("Selection One") and the index ("1") of the selection.
 ]]
 ```
-## Creating selections (Slider replacement)
+## Creating value selections (Slider replacement)
 ```lua
 Tab:NewValueSelection("Value Selection Ex",0,100,5,50,function(value)
     print(value)
