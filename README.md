@@ -6,6 +6,10 @@ My first and only publicly released library
 
 [Click here for Documentation][Docs]
 
+## Preview
+
+<img align="left" alt="Preview" src="https://i.imgur.com/v1x9ijG.png" />
+
 
 ## Made by Totem#7908 | Contact Me
 
