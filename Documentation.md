@@ -49,6 +49,23 @@ Dangerous = True or false; Label the toggle as dangerous to execute.
 ]]
 ```
 
+## Creating selections
+```lua
+Tab:NewSelection("Selection Example",{
+    "Selection One",
+    "Selection Two",
+    "Selection Three"
+},1,function(selection,index)
+    print(index.." : "..selection)
+end)
+--[[
+Name = The text or name of the selection.
+Selections = The options you wish to display to be selected
+Default Index = The index number of default selections
+Function = The code to execute every time the selection is changed. Returns with selection ("Selection One") and the index ("1") of the selection.
+]]
+```
+
 ## Creating a Label
 ```lua
 Tab:NewLabel("Label Example", false)
@@ -73,7 +90,12 @@ Warning = True or false; Color the paragraph as a warning.
 
 ## Destroying the Library
 ```lua
-Main:Destroy()
+Window:DestroyGuiButton()
+Tab:DestroyGuiButton()
+--[[  ^ Inserts a premade Destroy Gui button with custom icon. ]]
+Window:Destroy()
+Tab:Destroy()
+--[[ ^ Immediately destroys the gui. ]]
 ```
 
 ## P.S.
