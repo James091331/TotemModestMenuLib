@@ -1,20 +1,31 @@
 local Library = {}
 
-function Library:CreateWindow(titleText)
+function Library:CreateWindow(titleText,prompt)
     local ModestLib = Instance.new("ScreenGui")
     local Window = Instance.new("Frame")
     local TitleFrame = Instance.new("Frame")
     local Title = Instance.new("TextLabel")
     local UIListLayout = Instance.new("UIListLayout")
-    
+
     --[[  Check if ModestLib exists and Destroy it if it does  ]]
     pcall(function() if game:GetService("CoreGui").ModestLib then game:GetService("CoreGui").ModestLib:Destroy() else print('F'); end; end)
     --[[                                                       ]]
+    
+    
+    getgenv().radiowaveswhyhaveidonethis = false
+    if prompt then
+        loadstring(game:HttpGet(('https://raw.githubusercontent.com/Xv3nm/TotemModestMenuLib/main/prompt')))()
+        while not getgenv().radiowaveswhyhaveidonethis do
+            wait(0.1)
+        end
+    else
+        print('Prompt disabled, thank you for using my sexy ass lib.')
+    end
 
     ModestLib.Name = "ModestLib"
     ModestLib.Parent = game:GetService("CoreGui")
     ModestLib.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-    
+
     Window.Name = "Window"
     Window.Parent = ModestLib
     Window.BackgroundColor3 = Color3.fromRGB(11, 65, 106)
@@ -26,13 +37,13 @@ function Library:CreateWindow(titleText)
     Window.Draggable = true
     Window.Active = true
     Window.Selectable = true
-    
+
     TitleFrame.Name = "TitleFrame"
     TitleFrame.Parent = Window
     TitleFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     TitleFrame.BackgroundTransparency = 1.000
     TitleFrame.Size = UDim2.new(0, 389, 0, 26)
-    
+
     Title.Name = "Title"
     Title.Parent = TitleFrame
     Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -40,20 +51,25 @@ function Library:CreateWindow(titleText)
     Title.BorderSizePixel = 0
     Title.Size = UDim2.new(0, 389, 0, 26)
     Title.Font = Enum.Font.GothamSemibold
-    Title.Text = titleText or "Totem's Modest Menu Lib v0.2.3"
+    if titleText == "" then
+        Title.Text = "Totem's Modest Menu Lib v0.2.3"
+    else
+        Title.Text = titleText or "Totem's Modest Menu Lib v0.2.3"
+    end
+    
     Title.TextColor3 = Color3.fromRGB(255, 255, 255)
     Title.TextSize = 16.000
-    
+
     UIListLayout.Parent = Window
     UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
     UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-    
+
     local innards = {}
-    
+
     function innards:Destroy()
         ModestLib:Destroy()
     end
-    
+
     function innards:NewTab(name,danger)
         local Tab = Instance.new("Frame")
         local UIListLayout = Instance.new("UIListLayout")
@@ -514,7 +530,7 @@ function Library:CreateWindow(titleText)
         
         return tabInnards;
     end
-    
+
     function innards:NewButton(name, interaction, danger)
         local TextButton = Instance.new("TextButton")
 
@@ -558,7 +574,7 @@ function Library:CreateWindow(titleText)
             TextButton.BackgroundTransparency = 1
         end)
     end
-    
+
     function innards:NewToggle(name,state,interaction,danger)
         local TextButton = Instance.new("TextButton")
         local uncheck = Instance.new("ImageButton")
@@ -644,7 +660,7 @@ function Library:CreateWindow(titleText)
             TextButton.BackgroundTransparency = 1
         end)
     end
-    
+
     function innards:NewSelection(name, selections, default, interaction)
         local TextButton = Instance.new("TextButton")
         local Selection = Instance.new("TextButton")
@@ -740,8 +756,7 @@ function Library:CreateWindow(titleText)
             interaction(selections[curSelection],curSelection)
         end)
     end
-    
-    
+
     function innards:NewLabel(name,warning)
         local TextButton = Instance.new("TextButton")
 
@@ -760,7 +775,7 @@ function Library:CreateWindow(titleText)
         TextButton.TextSize = 16.000
         TextButton.TextXAlignment = Enum.TextXAlignment.Center
     end
-    
+
     function innards:NewParagraph(name,height,fontSize,warning)
         local TextButton = Instance.new("TextButton")
 
@@ -780,7 +795,7 @@ function Library:CreateWindow(titleText)
         TextButton.TextSize = fontSize or 16
         TextButton.TextXAlignment = Enum.TextXAlignment.Center
     end
-    
+
     function innards:DestroyGuiButton()
         local TextButton = Instance.new("TextButton")
         local power = Instance.new("ImageButton")
@@ -823,7 +838,7 @@ function Library:CreateWindow(titleText)
             TextButton.BackgroundTransparency = 1
         end)
     end
-    
+
     return innards;
 end
 return Library;
