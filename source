@@ -757,7 +757,7 @@ function Library:CreateWindow(titleText,prompt)
         end)
     end
     
-    function innards:NewValueSelection(name, minimum, maximum, countby,default, interaction)
+    function innards:NewValueSelection(name, minimum, maximum, countby, default, interaction)
         local TextButton = Instance.new("TextButton")
         local Selection = Instance.new("TextButton")
         local right = Instance.new("ImageButton")
@@ -819,62 +819,49 @@ function Library:CreateWindow(titleText,prompt)
         UIListLayout.FillDirection = Enum.FillDirection.Horizontal
         UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
         UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
-        local HeldLeft = false
-        local HeldRight = false
+        local heldR = false
+        local heldL = false
 
         spawn(function()
-            while wait(0.5) do
-                if HeldLeft then
-                    curSelection = curSelection - countby
-                elseif HeldRight then
-                    curSelection = curSelection + countby
+            while wait(0.1) do
+                if heldR then
+                    if curSelection < maximum then
+                        curSelection = curSelection + countby
+                        nobody.Text = curSelection
+                    elseif curSelection >= maximum then
+                        if curSelection > maximum then curSelection = maximum; nobody.Text = curSelection end
+                        heldR = false
+                    end
+                elseif heldL then
+                    if curSelection > minimum then
+                        curSelection = curSelection - countby
+                        nobody.Text = curSelection
+                    elseif curSelection <= minimum then
+                        if curSelection < minimum then curSelection = minimum; nobody.Text = curSelection end
+                        heldL = false
+                    end
                 end
-                nobody.Text = curSelection
             end
         end)
         
-        left.MouseButton1Click:Connect(function()
 
-            local UserInputService = game:GetService("UserInputService")
-            
-            UserInputService.InputBegan:Connect(function(inputObject)
-            	if inputObject.UserInputType == Enum.UserInputType.MouseButton1 then
-            		HeldLeft = true
-            	end
-            end)
-            
-            UserInputService.InputEnded:Connect(function(inputObject)
-            	if inputObject.UserInputType == Enum.UserInputType.MouseButton1 then
-            		HeldLeft = false
-            	end
-            end)
-            
-            --curSelection = curSelection - countby
-            
+        left.MouseButton1Down:Connect(function()
+            heldL = true
+        end)
+
+        left.MouseButton1Up:Connect(function()
+            heldL = false
             nobody.Text = curSelection
-            
             interaction(curSelection)
         end)
         
-        right.MouseButton1Click:Connect(function()
-            local UserInputService = game:GetService("UserInputService")
-            
-            UserInputService.InputBegan:Connect(function(inputObject)
-            	if inputObject.UserInputType == Enum.UserInputType.MouseButton1 then
-            		HeldRight = true
-            	end
-            end)
-            
-            UserInputService.InputEnded:Connect(function(inputObject)
-            	if inputObject.UserInputType == Enum.UserInputType.MouseButton1 then
-            		HeldRight = false
-            	end
-            end)
-            
-            --curSelection = curSelection + countby
-            
+        right.MouseButton1Down:Connect(function()
+            heldR = true
+        end)
+
+        right.MouseButton1Up:Connect(function()
+            heldR = false
             nobody.Text = curSelection
-            
             interaction(curSelection)
         end)
     end
@@ -951,7 +938,7 @@ function Library:CreateWindow(titleText,prompt)
         
         
         TextButton.MouseButton1Click:Connect(function()
-            self:Destroy()
+            ModestLib:Destroy()
         end)
         
         TextButton.MouseEnter:Connect(function()
