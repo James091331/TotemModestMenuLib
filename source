@@ -40,7 +40,7 @@ function Library:CreateWindow(titleText)
     Title.BorderSizePixel = 0
     Title.Size = UDim2.new(0, 389, 0, 26)
     Title.Font = Enum.Font.GothamSemibold
-    Title.Text = titleText or "Totem's Modest Menu Lib v0.1.0"
+    Title.Text = titleText or "Totem's Modest Menu Lib v0.2.3"
     Title.TextColor3 = Color3.fromRGB(255, 255, 255)
     Title.TextSize = 16.000
     
@@ -66,7 +66,7 @@ function Library:CreateWindow(titleText)
         TextButton.BackgroundColor3 = Color3.fromRGB(224,197,69)
         TextButton.BackgroundTransparency = 1.000
         TextButton.BorderSizePixel = 0
-        TextButton.Size = UDim2.new(1, 0, 0.0250000004, 0)
+        TextButton.Size = UDim2.new(1, 0, 0.026, 0)
         TextButton.Font = Enum.Font.GothamSemibold
         if danger then
             TextButton.Text = "      "..name
@@ -115,7 +115,7 @@ function Library:CreateWindow(titleText)
         Home.BackgroundColor3 = Color3.fromRGB(224,197,69)
         Home.BackgroundTransparency = 1.000
         Home.BorderSizePixel = 0
-        Home.Size = UDim2.new(1, 0, 0.0250000004, 0)
+        Home.Size = UDim2.new(1, 0, 0.026, 0)
         Home.Font = Enum.Font.GothamSemibold
         Home.Text = "  .."
         Home.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -178,6 +178,10 @@ function Library:CreateWindow(titleText)
         
         local tabInnards = {}
         
+        function tabInnards:Destroy()
+            ModestLib:Destroy()
+        end
+        
         function tabInnards:NewButton(name, interaction, danger)
             local TextButton = Instance.new("TextButton")
     
@@ -185,7 +189,7 @@ function Library:CreateWindow(titleText)
             TextButton.BackgroundColor3 = Color3.fromRGB(224,197,69)
             TextButton.BackgroundTransparency = 1.000
             TextButton.BorderSizePixel = 0
-            TextButton.Size = UDim2.new(1, 0, 0.0250000004, 0)
+            TextButton.Size = UDim2.new(1, 0, 0.026, 0)
             TextButton.Font = Enum.Font.GothamSemibold
             if danger then
                 TextButton.Text = "      "..name
@@ -232,7 +236,7 @@ function Library:CreateWindow(titleText)
             TextButton.BackgroundColor3 = Color3.fromRGB(224,197,69)
             TextButton.BackgroundTransparency = 1.000
             TextButton.BorderSizePixel = 0
-            TextButton.Size = UDim2.new(1, 0, 0.0250000004, 0)
+            TextButton.Size = UDim2.new(1, 0, 0.026, 0)
             TextButton.Font = Enum.Font.GothamSemibold
             if danger then
                 TextButton.Text = "      "..name
@@ -316,7 +320,7 @@ function Library:CreateWindow(titleText)
             TextButton.BackgroundColor3 = Color3.fromRGB(224,197,69)
             TextButton.BackgroundTransparency = 1.000
             TextButton.BorderSizePixel = 0
-            TextButton.Size = UDim2.new(1, 0, 0.025, 0)
+            TextButton.Size = UDim2.new(1, 0, 0.026, 0)
             TextButton.Font = Enum.Font.GothamSemibold
             TextButton.Text = name
             if warning then
@@ -335,7 +339,7 @@ function Library:CreateWindow(titleText)
             TextButton.BackgroundColor3 = Color3.fromRGB(224,197,69)
             TextButton.BackgroundTransparency = 1.000
             TextButton.BorderSizePixel = 0
-            TextButton.Size = UDim2.new(1, 0, height or 0.025, 0)
+            TextButton.Size = UDim2.new(1, 0, height or 0.026, 0)
             TextButton.Font = Enum.Font.GothamSemibold
             TextButton.TextWrapped = true
             TextButton.Text = name
@@ -348,6 +352,166 @@ function Library:CreateWindow(titleText)
             TextButton.TextXAlignment = Enum.TextXAlignment.Center
         end
         
+        function tabInnards:NewSelection(name, selections, default, interaction)
+            local TextButton = Instance.new("TextButton")
+            local Selection = Instance.new("TextButton")
+            local right = Instance.new("ImageButton")
+            local left = Instance.new("ImageButton")
+            local UIListLayout = Instance.new("UIListLayout")
+            local nobody = Instance.new("TextLabel")
+            local selectionNum = 0;
+            local curSelection = default
+            
+            for _,v in pairs(selections) do
+                selectionNum = selectionNum + 1;
+            end
+            
+    
+            TextButton.Parent = Tab
+            TextButton.BackgroundColor3 = Color3.fromRGB(224,197,69)
+            TextButton.BackgroundTransparency = 1.000
+            TextButton.BorderSizePixel = 0
+            TextButton.Size = UDim2.new(1, 0, 0.026, 0)
+            TextButton.Font = Enum.Font.GothamSemibold
+            if danger then
+                TextButton.Text = "      "..name
+            else
+                TextButton.Text = "  "..name
+            end
+            TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+            TextButton.TextSize = 16.000
+            TextButton.TextXAlignment = Enum.TextXAlignment.Left
+            
+            right.Name = "right"
+            right.Parent = TextButton
+            right.AnchorPoint = Vector2.new(0.5, 0.5)
+            right.BackgroundTransparency = 1.000
+            right.LayoutOrder = 5
+            right.Position = UDim2.new(0.97, 0, 0.5, 0)
+            right.Size = UDim2.new(0, 25, 0, 25)
+            right.ZIndex = 2
+            right.Image = "rbxassetid://6764432408"
+            right.ImageRectOffset = Vector2.new(100, 150)
+            right.ImageRectSize = Vector2.new(50, 50)
+            
+            left.Name = "left"
+            left.Parent = TextButton
+            left.AnchorPoint = Vector2.new(0.5, 0.5)
+            left.BackgroundTransparency = 1.000
+            left.LayoutOrder = 5
+            left.Position = UDim2.new(0.5, 0, 0.342726082, 0)
+            left.Size = UDim2.new(0, 25, 0, 25)
+            left.ZIndex = 2
+            left.Image = "rbxassetid://6764432408"
+            left.ImageRectOffset = Vector2.new(150, 300)
+            left.ImageRectSize = Vector2.new(50, 50)
+            
+            nobody.Name = "nobody"
+            nobody.Parent = TextButton
+            nobody.AnchorPoint = Vector2.new(0.5, 0.5)
+            nobody.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            nobody.BackgroundTransparency = 1.000
+            nobody.BorderSizePixel = 0
+            nobody.Position = UDim2.new(0.741645217, 0, 0.657273829, 0)
+            nobody.Size = UDim2.new(0, 150, 0, 20)
+            nobody.Font = Enum.Font.GothamSemibold
+            nobody.Text = selections[curSelection] or "nil"
+            nobody.TextColor3 = Color3.fromRGB(255, 255, 255)
+            nobody.TextSize = 14.000
+            nobody.TextYAlignment = Enum.TextYAlignment.Center
+            
+            UIListLayout.Parent = TextButton
+            UIListLayout.FillDirection = Enum.FillDirection.Horizontal
+            UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
+            UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+    
+            if danger then
+                local warning = Instance.new("ImageButton")
+                    
+                warning.Name = "warning"
+                warning.Parent = TextButton
+                warning.AnchorPoint = Vector2.new(0.5, 0.5)
+                warning.BackgroundTransparency = 1
+                warning.Position = UDim2.new(0.04, 0, 0.5, 0)
+                warning.Size = UDim2.new(0, 25, 0, 25)
+                warning.ZIndex = 2
+                warning.Image = "rbxassetid://6764432408"
+                warning.ImageRectOffset = Vector2.new(0, 900)
+                warning.ImageRectSize = Vector2.new(50, 50)
+            end
+            
+            
+            
+            left.MouseButton1Click:Connect(function()
+                curSelection = curSelection - 1
+                if curSelection == 0 then
+                    curSelection = selectionNum
+                elseif curSelection == selectionNum then
+                    curSelection = 1
+                end
+                
+                nobody.Text = selections[curSelection]
+                
+                interaction(selections[curSelection],curSelection)
+            end)
+            
+            right.MouseButton1Click:Connect(function()
+                curSelection = curSelection + 1
+                if curSelection == 0 then
+                    curSelection = selectionNum
+                elseif curSelection > selectionNum then
+                    curSelection = 1
+                end
+                
+                nobody.Text = selections[curSelection]
+                
+                interaction(selections[curSelection],curSelection)
+            end)
+        end
+        
+        function tabInnards:DestroyGuiButton()
+            local TextButton = Instance.new("TextButton")
+            local power = Instance.new("ImageButton")
+    
+            TextButton.Parent = Tab
+            TextButton.AnchorPoint = Vector2.new(0.5, 0.5)
+            TextButton.Position = UDim2.new(0.5, 0, 0.5, 0)
+            TextButton.BackgroundColor3 = Color3.fromRGB(224,97,69)
+            TextButton.BackgroundTransparency = 1.000
+            TextButton.BorderSizePixel = 0
+            TextButton.Size = UDim2.new(1, 0, height or 0.026, 0)
+            TextButton.Font = Enum.Font.GothamSemibold
+            TextButton.TextWrapped = true
+            TextButton.Text = "        Destroy Gui"
+            TextButton.TextColor3 = Color3.fromRGB(205, 105, 105)
+            TextButton.TextSize = fontSize or 16
+            TextButton.TextXAlignment = Enum.TextXAlignment.Left
+            
+            power.Name = "power"
+            power.Parent = TextButton
+            power.AnchorPoint = Vector2.new(0.5, 0.5)
+            power.BackgroundTransparency = 1.000
+            power.Position = UDim2.new(0.04, 0, 0.5, 0)
+            power.Size = UDim2.new(0, 25, 0, 25)
+            power.ZIndex = 2
+            power.Image = "rbxassetid://6764432408"
+            power.ImageRectOffset = Vector2.new(100, 400)
+            power.ImageRectSize = Vector2.new(50, 50)
+            
+            
+            TextButton.MouseButton1Click:Connect(function()
+                ModestLib:Destroy()
+            end)
+            
+            TextButton.MouseEnter:Connect(function()
+                TextButton.BackgroundTransparency = 0.7
+            end)
+            
+            TextButton.MouseLeave:Connect(function()
+                TextButton.BackgroundTransparency = 1
+            end)
+        end
+        
         return tabInnards;
     end
     
@@ -358,7 +522,7 @@ function Library:CreateWindow(titleText)
         TextButton.BackgroundColor3 = Color3.fromRGB(224,197,69)
         TextButton.BackgroundTransparency = 1.000
         TextButton.BorderSizePixel = 0
-        TextButton.Size = UDim2.new(1, 0, 0.0250000004, 0)
+        TextButton.Size = UDim2.new(1, 0, 0.026, 0)
         TextButton.Font = Enum.Font.GothamSemibold
         if danger then
             TextButton.Text = "      "..name
@@ -404,7 +568,7 @@ function Library:CreateWindow(titleText)
         TextButton.BackgroundColor3 = Color3.fromRGB(224,197,69)
         TextButton.BackgroundTransparency = 1.000
         TextButton.BorderSizePixel = 0
-        TextButton.Size = UDim2.new(1, 0, 0.0250000004, 0)
+        TextButton.Size = UDim2.new(1, 0, 0.026, 0)
         TextButton.Font = Enum.Font.GothamSemibold
         if danger then
             TextButton.Text = "      "..name
@@ -482,6 +646,124 @@ function Library:CreateWindow(titleText)
         end)
     end
     
+    function innards:NewSelection(name, selections, default, interaction)
+        local TextButton = Instance.new("TextButton")
+        local Selection = Instance.new("TextButton")
+        local right = Instance.new("ImageButton")
+        local left = Instance.new("ImageButton")
+        local UIListLayout = Instance.new("UIListLayout")
+        local nobody = Instance.new("TextLabel")
+        local selectionNum = 0
+        local curSelection = default
+        
+        for _,v in pairs(selections) do
+            selectionNum = selectionNum + 1
+        end
+        
+
+        TextButton.Parent = Window
+        TextButton.BackgroundColor3 = Color3.fromRGB(224,197,69)
+        TextButton.BackgroundTransparency = 1.000
+        TextButton.BorderSizePixel = 0
+        TextButton.Size = UDim2.new(1, 0, 0.026, 0)
+        TextButton.Font = Enum.Font.GothamSemibold
+        if danger then
+            TextButton.Text = "      "..name
+        else
+            TextButton.Text = "  "..name
+        end
+        TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TextButton.TextSize = 16.000
+        TextButton.TextXAlignment = Enum.TextXAlignment.Left
+        
+        right.Name = "right"
+        right.Parent = TextButton
+        right.AnchorPoint = Vector2.new(0.5, 0.5)
+        right.BackgroundTransparency = 1.000
+        right.LayoutOrder = 5
+        right.Position = UDim2.new(0.97, 0, 0.5, 0)
+        right.Size = UDim2.new(0, 25, 0, 25)
+        right.ZIndex = 2
+        right.Image = "rbxassetid://6764432408"
+        right.ImageRectOffset = Vector2.new(100, 150)
+        right.ImageRectSize = Vector2.new(50, 50)
+        
+        left.Name = "left"
+        left.Parent = TextButton
+        left.AnchorPoint = Vector2.new(0.5, 0.5)
+        left.BackgroundTransparency = 1.000
+        left.LayoutOrder = 5
+        left.Position = UDim2.new(0.5, 0, 0.342726082, 0)
+        left.Size = UDim2.new(0, 25, 0, 25)
+        left.ZIndex = 2
+        left.Image = "rbxassetid://6764432408"
+        left.ImageRectOffset = Vector2.new(150, 300)
+        left.ImageRectSize = Vector2.new(50, 50)
+        
+        nobody.Name = "nobody"
+        nobody.Parent = TextButton
+        nobody.AnchorPoint = Vector2.new(0.5, 0.5)
+        nobody.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        nobody.BackgroundTransparency = 1.000
+        nobody.BorderSizePixel = 0
+        nobody.Position = UDim2.new(0.741645217, 0, 0.657273829, 0)
+        nobody.Size = UDim2.new(0, 150, 0, 20)
+        nobody.Font = Enum.Font.GothamSemibold
+        nobody.Text = selections[curSelection] or "nil"
+        nobody.TextColor3 = Color3.fromRGB(255, 255, 255)
+        nobody.TextSize = 14.000
+        nobody.TextYAlignment = Enum.TextYAlignment.Center
+        
+        UIListLayout.Parent = TextButton
+        UIListLayout.FillDirection = Enum.FillDirection.Horizontal
+        UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
+        UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+
+        if danger then
+            local warning = Instance.new("ImageButton")
+                
+            warning.Name = "warning"
+            warning.Parent = TextButton
+            warning.AnchorPoint = Vector2.new(0.5, 0.5)
+            warning.BackgroundTransparency = 1
+            warning.Position = UDim2.new(0.04, 0, 0.5, 0)
+            warning.Size = UDim2.new(0, 25, 0, 25)
+            warning.ZIndex = 2
+            warning.Image = "rbxassetid://6764432408"
+            warning.ImageRectOffset = Vector2.new(0, 900)
+            warning.ImageRectSize = Vector2.new(50, 50)
+        end
+        
+        
+        
+        left.MouseButton1Click:Connect(function()
+            curSelection = curSelection - 1
+            if curSelection == 0 then
+                curSelection = selectionNum
+            elseif curSelection == selectionNum then
+                curSelection = 1
+            end
+            
+            nobody.Text = selections[curSelection]
+            
+            interaction(selections[curSelection],curSelection)
+        end)
+        
+        right.MouseButton1Click:Connect(function()
+            curSelection = curSelection + 1
+            if curSelection == 0 then
+                curSelection = selectionNum
+            elseif curSelection > selectionNum then
+                curSelection = 1
+            end
+            
+            nobody.Text = selections[curSelection]
+            
+            interaction(selections[curSelection],curSelection)
+        end)
+    end
+    
+    
     function innards:NewLabel(name,warning)
         local TextButton = Instance.new("TextButton")
 
@@ -489,7 +771,7 @@ function Library:CreateWindow(titleText)
         TextButton.BackgroundColor3 = Color3.fromRGB(224,197,69)
         TextButton.BackgroundTransparency = 1.000
         TextButton.BorderSizePixel = 0
-        TextButton.Size = UDim2.new(1, 0, 0.025, 0)
+        TextButton.Size = UDim2.new(1, 0, 0.026, 0)
         TextButton.Font = Enum.Font.GothamSemibold
         TextButton.Text = name
         if warning then
@@ -508,7 +790,7 @@ function Library:CreateWindow(titleText)
         TextButton.BackgroundColor3 = Color3.fromRGB(224,197,69)
         TextButton.BackgroundTransparency = 1.000
         TextButton.BorderSizePixel = 0
-        TextButton.Size = UDim2.new(1, 0, height or 0.025, 0)
+        TextButton.Size = UDim2.new(1, 0, height or 0.026, 0)
         TextButton.Font = Enum.Font.GothamSemibold
         TextButton.TextWrapped = true
         TextButton.Text = name
@@ -519,6 +801,49 @@ function Library:CreateWindow(titleText)
         end
         TextButton.TextSize = fontSize or 16
         TextButton.TextXAlignment = Enum.TextXAlignment.Center
+    end
+    
+    function innards:DestroyGuiButton()
+        local TextButton = Instance.new("TextButton")
+        local power = Instance.new("ImageButton")
+
+        TextButton.Parent = Window
+        TextButton.AnchorPoint = Vector2.new(0.5, 0.5)
+        TextButton.Position = UDim2.new(0.5, 0, 0.5, 0)
+        TextButton.BackgroundColor3 = Color3.fromRGB(224,97,69)
+        TextButton.BackgroundTransparency = 1.000
+        TextButton.BorderSizePixel = 0
+        TextButton.Size = UDim2.new(1, 0, height or 0.026, 0)
+        TextButton.Font = Enum.Font.GothamSemibold
+        TextButton.TextWrapped = true
+        TextButton.Text = "        Destroy Gui"
+        TextButton.TextColor3 = Color3.fromRGB(205, 105, 105)
+        TextButton.TextSize = fontSize or 16
+        TextButton.TextXAlignment = Enum.TextXAlignment.Left
+        
+        power.Name = "power"
+        power.Parent = TextButton
+        power.AnchorPoint = Vector2.new(0.5, 0.5)
+        power.BackgroundTransparency = 1.000
+        power.Position = UDim2.new(0.04, 0, 0.5, 0)
+        power.Size = UDim2.new(0, 25, 0, 25)
+        power.ZIndex = 2
+        power.Image = "rbxassetid://6764432408"
+        power.ImageRectOffset = Vector2.new(100, 400)
+        power.ImageRectSize = Vector2.new(50, 50)
+        
+        
+        TextButton.MouseButton1Click:Connect(function()
+            self:Destroy()
+        end)
+        
+        TextButton.MouseEnter:Connect(function()
+            TextButton.BackgroundTransparency = 0.7
+        end)
+        
+        TextButton.MouseLeave:Connect(function()
+            TextButton.BackgroundTransparency = 1
+        end)
     end
     
     return innards;
