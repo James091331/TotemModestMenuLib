@@ -479,12 +479,12 @@ function Library:CreateWindow(titleText)
             TextButton.BackgroundColor3 = Color3.fromRGB(224,97,69)
             TextButton.BackgroundTransparency = 1.000
             TextButton.BorderSizePixel = 0
-            TextButton.Size = UDim2.new(1, 0, height or 0.026, 0)
+            TextButton.Size = UDim2.new(1, 0, 0.026, 0)
             TextButton.Font = Enum.Font.GothamSemibold
             TextButton.TextWrapped = true
             TextButton.Text = "        Destroy Gui"
             TextButton.TextColor3 = Color3.fromRGB(205, 105, 105)
-            TextButton.TextSize = fontSize or 16
+            TextButton.TextSize = 16
             TextButton.TextXAlignment = Enum.TextXAlignment.Left
             
             power.Name = "power"
@@ -620,7 +620,6 @@ function Library:CreateWindow(titleText)
         if state then 
             uncheck.Visible = false; 
             check.Visible = true
-            boolOn()
         else 
             uncheck.Visible = true; 
             check.Visible = false 
@@ -667,11 +666,7 @@ function Library:CreateWindow(titleText)
         TextButton.BorderSizePixel = 0
         TextButton.Size = UDim2.new(1, 0, 0.026, 0)
         TextButton.Font = Enum.Font.GothamSemibold
-        if danger then
-            TextButton.Text = "      "..name
-        else
-            TextButton.Text = "  "..name
-        end
+        TextButton.Text = "  "..name
         TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
         TextButton.TextSize = 16.000
         TextButton.TextXAlignment = Enum.TextXAlignment.Left
@@ -718,23 +713,6 @@ function Library:CreateWindow(titleText)
         UIListLayout.FillDirection = Enum.FillDirection.Horizontal
         UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
         UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
-
-        if danger then
-            local warning = Instance.new("ImageButton")
-                
-            warning.Name = "warning"
-            warning.Parent = TextButton
-            warning.AnchorPoint = Vector2.new(0.5, 0.5)
-            warning.BackgroundTransparency = 1
-            warning.Position = UDim2.new(0.04, 0, 0.5, 0)
-            warning.Size = UDim2.new(0, 25, 0, 25)
-            warning.ZIndex = 2
-            warning.Image = "rbxassetid://6764432408"
-            warning.ImageRectOffset = Vector2.new(0, 900)
-            warning.ImageRectSize = Vector2.new(50, 50)
-        end
-        
-        
         
         left.MouseButton1Click:Connect(function()
             curSelection = curSelection - 1
@@ -813,12 +791,12 @@ function Library:CreateWindow(titleText)
         TextButton.BackgroundColor3 = Color3.fromRGB(224,97,69)
         TextButton.BackgroundTransparency = 1.000
         TextButton.BorderSizePixel = 0
-        TextButton.Size = UDim2.new(1, 0, height or 0.026, 0)
+        TextButton.Size = UDim2.new(1, 0, 0.026, 0)
         TextButton.Font = Enum.Font.GothamSemibold
         TextButton.TextWrapped = true
         TextButton.Text = "        Destroy Gui"
         TextButton.TextColor3 = Color3.fromRGB(205, 105, 105)
-        TextButton.TextSize = fontSize or 16
+        TextButton.TextSize = 16
         TextButton.TextXAlignment = Enum.TextXAlignment.Left
         
         power.Name = "power"
