@@ -50,7 +50,7 @@ Dangerous = True or false; Label the toggle as dangerous to execute.
 ]]
 ```
 
-## Creating selections
+## Creating selections (Dropdown replacement)
 ```lua
 Tab:NewSelection("Selection Example",{
     "Selection One",
@@ -66,6 +66,26 @@ Default Index = The index number of default selections
 Function = The code to execute every time the selection is changed. Returns with selection ("Selection One") and the index ("1") of the selection.
 ]]
 ```
+## Creating selections (Slider replacement)
+```lua
+Tab:NewValueSelection("Value Selection Ex",0,100,5,50,function(value)
+    print(value)
+end)
+--[[
+Name = The text or name of the selection.
+Minimum = Minimum selected value
+Maximum = Maximum selected value
+Count = The amount increased or decreased per click
+Default = The default value shown in the selector
+Function = Code executed after every value changed.
+]]
+
+--[[
+It is possible to hold down the value selection arrows allowing for faster navigation.
+To keep away from lagging the game code will not execute until you release your mouse button from the selector arrow.
+]]
+```
+
 
 ## Creating a Label
 ```lua
