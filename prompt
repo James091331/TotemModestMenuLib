@@ -6,13 +6,17 @@ local gui = Instance.new("ScreenGui", game.CoreGui)
 prompt:setParent(gui)
 prompt:setErrorTitle("Totem's Modest Menu Lib")
 prompt:updateButtons({{
-   Text = "Cancel",
-   Callback = function() prompt:_close() end,
+   Text = "<3",
+   Callback = function() prompt:_close()
+      pcall(function()
+           getgenv().radiowaveswhyhaveidonethis = true
+       end)
+   end,
 }, {
-   Text = "Confirm",
+   Text = "<3",
    Callback = function() prompt:_close() 
        pcall(function()
-           
+           getgenv().radiowaveswhyhaveidonethis = true
        end)
    end,
    Primary = true
