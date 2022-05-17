@@ -826,11 +826,10 @@ function Library:CreateWindow(titleText,prompt)
             while wait(0.5) do
                 if HeldLeft then
                     curSelection = curSelection - countby
-                    nobody.Text = curSelection
                 elseif HeldRight then
                     curSelection = curSelection + countby
-                    nobody.Text = curSelection
                 end
+                nobody.Text = curSelection
             end
         end)
         
@@ -859,7 +858,6 @@ function Library:CreateWindow(titleText,prompt)
         
         right.MouseButton1Click:Connect(function()
             local UserInputService = game:GetService("UserInputService")
-            local HeldRight = false
             
             UserInputService.InputBegan:Connect(function(inputObject)
             	if inputObject.UserInputType == Enum.UserInputType.MouseButton1 then
