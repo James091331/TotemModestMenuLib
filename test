@@ -1,7 +1,7 @@
-
+local promptEnabled = ...
 local Library = {}
 
-function Library:CreateWindow(titleText,prompt)
+function Library:CreateWindow(titleText)
     local ModestLib = Instance.new("ScreenGui")
     local Window = Instance.new("Frame")
     local TitleFrame = Instance.new("Frame")
@@ -12,7 +12,7 @@ function Library:CreateWindow(titleText,prompt)
     pcall(function() if game:GetService("CoreGui").ModestLib then game:GetService("CoreGui").ModestLib:Destroy() else print('F'); end; end)
     --[[                                                       ]]
 
-    if prompt then
+    if promptEnabled then
         loadstring(game:HttpGet(('https://raw.githubusercontent.com/Xv3nm/TotemModestMenuLib/main/prompt')))()
     else
         print('Prompt disabled, thank you for using my sexy ass lib.')
