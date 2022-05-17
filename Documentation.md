@@ -10,9 +10,10 @@ local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Xv3n
 
 ## Window
 ```lua
-local Window = library:CreateWindow("Name")
+local Window = library:CreateWindow("Name",false)
 --[[
 Name = Name of your UI
+Prompt = True or false; Enable or disable prompt
 ]]
 ```
 
@@ -96,6 +97,15 @@ Tab:DestroyGuiButton()
 Window:Destroy()
 Tab:Destroy()
 --[[ ^ Immediately destroys the gui. ]]
+```
+
+## PromptDisable
+```lua
+library:CreateWindow("Name",false)
+--[[
+Name = Name of Window
+Prompt = True or false; Enable or disable the executed prompt
+]]
 ```
 
 ## P.S.
