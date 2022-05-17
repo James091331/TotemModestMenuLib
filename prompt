@@ -1,0 +1,21 @@
+local ErrorPrompt = getrenv().require(game.CoreGui.RobloxGui.Modules.ErrorPrompt)
+local prompt = ErrorPrompt.new("Default")
+prompt._hideErrorCode = true
+
+local gui = Instance.new("ScreenGui", game.CoreGui)
+prompt:setParent(gui)
+prompt:setErrorTitle("Totem's Modest Menu Lib")
+prompt:updateButtons({{
+   Text = "Cancel",
+   Callback = function() prompt:_close() end,
+}, {
+   Text = "Confirm",
+   Callback = function() prompt:_close() 
+       pcall(function()
+           
+       end)
+   end,
+   Primary = true
+}}, 'Default')
+prompt:_open("Thanks for using my very hot ui lib <3\nCheck documentation for PromptDisable to get rid of this.")
+--[[ https://v3rmillion.net/showthread.php?tid=1169936 ]]
