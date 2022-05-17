@@ -7,7 +7,6 @@ function Library:CreateWindow(titleText,prompt)
     local TitleFrame = Instance.new("Frame")
     local Title = Instance.new("TextLabel")
     local UIListLayout = Instance.new("UIListLayout")
-    prompt = ...
 
     --[[  Check if ModestLib exists and Destroy it if it does  ]]
     pcall(function() if game:GetService("CoreGui").ModestLib then game:GetService("CoreGui").ModestLib:Destroy() else print('F'); end; end)
