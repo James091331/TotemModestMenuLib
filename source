@@ -756,6 +756,88 @@ function Library:CreateWindow(titleText,prompt)
             interaction(selections[curSelection],curSelection)
         end)
     end
+    
+    function innards:NewValueSelection(name, minimum, maximum, countby,default, interaction)
+        local TextButton = Instance.new("TextButton")
+        local Selection = Instance.new("TextButton")
+        local right = Instance.new("ImageButton")
+        local left = Instance.new("ImageButton")
+        local UIListLayout = Instance.new("UIListLayout")
+        local nobody = Instance.new("TextLabel")
+        local curSelection = default
+
+        TextButton.Parent = Window
+        TextButton.BackgroundColor3 = Color3.fromRGB(224,197,69)
+        TextButton.BackgroundTransparency = 1.000
+        TextButton.BorderSizePixel = 0
+        TextButton.Size = UDim2.new(1, 0, 0.026, 0)
+        TextButton.Font = Enum.Font.GothamSemibold
+        TextButton.Text = "  "..name
+        TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TextButton.TextSize = 16.000
+        TextButton.TextXAlignment = Enum.TextXAlignment.Left
+        
+        right.Name = "right"
+        right.Parent = TextButton
+        right.AnchorPoint = Vector2.new(0.5, 0.5)
+        right.BackgroundTransparency = 1.000
+        right.LayoutOrder = 5
+        right.Position = UDim2.new(0.97, 0, 0.5, 0)
+        right.Size = UDim2.new(0, 25, 0, 25)
+        right.ZIndex = 2
+        right.Image = "rbxassetid://6764432408"
+        right.ImageRectOffset = Vector2.new(100, 150)
+        right.ImageRectSize = Vector2.new(50, 50)
+        
+        left.Name = "left"
+        left.Parent = TextButton
+        left.AnchorPoint = Vector2.new(0.5, 0.5)
+        left.BackgroundTransparency = 1.000
+        left.LayoutOrder = 5
+        left.Position = UDim2.new(0.5, 0, 0.342726082, 0)
+        left.Size = UDim2.new(0, 25, 0, 25)
+        left.ZIndex = 2
+        left.Image = "rbxassetid://6764432408"
+        left.ImageRectOffset = Vector2.new(150, 300)
+        left.ImageRectSize = Vector2.new(50, 50)
+        
+        nobody.Name = "nobody"
+        nobody.Parent = TextButton
+        nobody.AnchorPoint = Vector2.new(0.5, 0.5)
+        nobody.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        nobody.BackgroundTransparency = 1.000
+        nobody.BorderSizePixel = 0
+        nobody.Position = UDim2.new(0.741645217, 0, 0.657273829, 0)
+        nobody.Size = UDim2.new(0, 150, 0, 20)
+        nobody.Font = Enum.Font.GothamSemibold
+        nobody.Text = default or "nil"
+        nobody.TextColor3 = Color3.fromRGB(255, 255, 255)
+        nobody.TextSize = 14.000
+        nobody.TextYAlignment = Enum.TextYAlignment.Center
+        
+        UIListLayout.Parent = TextButton
+        UIListLayout.FillDirection = Enum.FillDirection.Horizontal
+        UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
+        UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+        
+        left.MouseButton1Click:Connect(function()
+            curSelection = curSelection - countby
+            
+            nobody.Text = curSelection
+            
+            interaction(curSelection)
+        end)
+        
+        right.MouseButton1Click:Connect(function()
+            curSelection = curSelection + countby
+            
+            nobody.Text = curSelection
+            
+            interaction(curSelection)
+        end)
+    end
+    
+    
 
     function innards:NewLabel(name,warning)
         local TextButton = Instance.new("TextButton")
