@@ -819,12 +819,14 @@ function Library:CreateWindow(titleText,prompt)
         UIListLayout.FillDirection = Enum.FillDirection.Horizontal
         UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
         UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
-        
+        local HeldLeft = false
+        local HeldRight = false
+
         spawn(function()
             while wait(0.5) do
                 if HeldLeft then
                     curSelection = curSelection - countby
-                elseif HelfRight then
+                elseif HeldRight then
                     curSelection = curSelection + countby
                 end
             end
@@ -833,7 +835,6 @@ function Library:CreateWindow(titleText,prompt)
         left.MouseButton1Click:Connect(function()
 
             local UserInputService = game:GetService("UserInputService")
-            local HeldLeft = false
             
             UserInputService.InputBegan:Connect(function(inputObject)
             	if inputObject.UserInputType == Enum.UserInputType.MouseButton1 then
