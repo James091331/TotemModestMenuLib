@@ -17,7 +17,7 @@ Window:NewSelection("Selection Example",{
 },1,function(selection,index)
     print(index.." : "..selection)
 end)
-Window:NewValueSelection("Value Selection Speed",8,128,8,16,function(selection)
+Window:NewValueSelection("Value Selection",8,128,8,16,function(selection)
     print(selection)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = selection
 end)
