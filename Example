@@ -1,5 +1,5 @@
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Xv3nm/TotemModestMenuLib/main/source')))()
-local Window = library:CreateWindow("Totem's Modest Menu Lib v0.3.6",true)
+local Window = library:CreateWindow("",true) -- Leaving name blank reverts to default : Totem's Modest Menu Lib v0.3.6
 
 Window:NewLabel("Text Label Example")
 
