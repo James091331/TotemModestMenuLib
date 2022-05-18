@@ -5,8 +5,6 @@ local Library = {}
 ]]
 
 function Library:CreateWindow(titleText,prompt)
-    print('Library Made By Totem#7908')
-    print('https://github.com/Xv3nm/TotemModestMenuLib/')
     local ModestLib = Instance.new("ScreenGui")
     local Window = Instance.new("Frame")
     local TitleFrame = Instance.new("Frame")
@@ -639,6 +637,293 @@ function Library:CreateWindow(titleText,prompt)
             end)
             
             TextButton.MouseLeave:Connect(function()
+                TextButton.BackgroundTransparency = 1
+            end)
+        end
+
+        function tabInnards:NewColorPicker(name,interaction)
+            local TextButton = Instance.new("TextButton")
+            local right = Instance.new("ImageButton")
+            local Picker = Instance.new("Frame")
+            local Colour = Instance.new("Frame")
+            local TextLabel = Instance.new("TextLabel")
+            local Wheel = Instance.new("ImageButton")
+            local Ring = Instance.new("ImageLabel")
+            local Slider = Instance.new("ImageButton")
+            local Slide = Instance.new("Frame")
+            local Colour_2 = Instance.new("Frame")
+            local TextLabel_2 = Instance.new("TextLabel")
+    
+            TextButton.Parent = Tab
+            TextButton.BackgroundColor3 = Color3.fromRGB(224,197,69)
+            TextButton.BackgroundTransparency = 1.000
+            TextButton.BorderSizePixel = 0
+            TextButton.Size = UDim2.new(1, 0, 0.026, 0)
+            TextButton.Font = Enum.Font.GothamSemibold
+            TextButton.Text = "  "..name
+            TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+            TextButton.TextSize = 16.000
+            TextButton.TextXAlignment = Enum.TextXAlignment.Left
+    
+            right.Name = "right"
+            right.Parent = TextButton
+            right.AnchorPoint = Vector2.new(0.5, 0.5)
+            right.BackgroundTransparency = 1.000
+            right.Position = UDim2.new(0.970000029, 0, 0.65, 0)
+            right.Rotation = 45.000
+            right.Size = UDim2.new(0, 25, 0, 25)
+            right.ZIndex = 2
+            right.Image = "rbxassetid://6764432408"
+            right.ImageRectOffset = Vector2.new(100, 150)
+            right.ImageRectSize = Vector2.new(50, 50)
+    
+            Picker.Name = "Picker"
+            Picker.Parent = TextButton
+            Picker.AnchorPoint = Vector2.new(0.5, 0.5)
+            Picker.BackgroundColor3 = Color3.fromRGB(11, 65, 106)
+            Picker.BorderColor3 = Color3.fromRGB(0, 0, 0)
+            Picker.BorderSizePixel = 3
+            Picker.Position = UDim2.new(1.26999998, 0, 6.48060322, 0)
+            Picker.Size = UDim2.new(0.494079441, 0, 10.26, 0)
+            Picker.ZIndex = 4
+            Picker.Visible = false
+    
+            Colour.Name = "Colour"
+            Colour.Parent = Picker
+            Colour.AnchorPoint = Vector2.new(0, 1)
+            Colour.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            Colour.BorderSizePixel = 0
+            Colour.Position = UDim2.new(0.00700000022, 1, 0.995000005, 0)
+            Colour.Size = UDim2.new(0.140133113, 0, 0.134908468, 0)
+            Colour.SizeConstraint = Enum.SizeConstraint.RelativeYY
+            Colour.ZIndex = 50
+    
+            TextLabel.Parent = Colour
+            TextLabel.BackgroundColor3 = Color3.fromRGB(11, 65, 106)
+            TextLabel.BackgroundTransparency = 0.100
+            TextLabel.BorderSizePixel = 0
+            TextLabel.Position = UDim2.new(1.15417576, 0, 0, 0)
+            TextLabel.Size = UDim2.new(3.12651801, 0, 1, 0)
+            TextLabel.ZIndex = 51
+            TextLabel.Font = Enum.Font.SourceSans
+            TextLabel.Text = "  255,255,255"
+            TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+            TextLabel.TextSize = 14.000
+            TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+    
+            Wheel.Name = "Wheel"
+            Wheel.Parent = Picker
+            Wheel.Active = false
+            Wheel.BackgroundColor3 = Color3.fromRGB(11, 65, 106)
+            Wheel.BackgroundTransparency = 0.100
+            Wheel.BorderSizePixel = 0
+            Wheel.Position = UDim2.new(0.00999999978, 0, 0.0179999992, 0)
+            Wheel.Selectable = false
+            Wheel.Size = UDim2.new(0.761994362, 0, 0.768390059, 0)
+            Wheel.SizeConstraint = Enum.SizeConstraint.RelativeYY
+            Wheel.ZIndex = 50
+            Wheel.AutoButtonColor = false
+            Wheel.Image = "rbxassetid://2849458409"
+            Wheel.TileSize = UDim2.new(0.200000003, 0, 0.200000003, 0)
+    
+            Ring.Name = "Ring"
+            Ring.Parent = Wheel
+            Ring.AnchorPoint = Vector2.new(0.5, 0.5)
+            Ring.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            Ring.BackgroundTransparency = 1.000
+            Ring.Position = UDim2.new(0.5, 0, 0.5, 0)
+            Ring.Size = UDim2.new(0.0799999982, 0, 0.0799999982, 0)
+            Ring.SizeConstraint = Enum.SizeConstraint.RelativeYY
+            Ring.ZIndex = 51
+            Ring.Image = "rbxassetid://244221613"
+            Ring.ImageColor3 = Color3.fromRGB(0, 0, 0)
+    
+            Slider.Name = "Slider"
+            Slider.Parent = Wheel
+            Slider.Active = false
+            Slider.BackgroundColor3 = Color3.fromRGB(248, 248, 248)
+            Slider.BorderSizePixel = 0
+            Slider.Position = UDim2.new(1.03163815, 0, -0.0193511341, 0)
+            Slider.Selectable = false
+            Slider.Size = UDim2.new(0.153808787, 0, 1.29734778, 0)
+            Slider.SizeConstraint = Enum.SizeConstraint.RelativeYY
+            Slider.ZIndex = 51
+            Slider.AutoButtonColor = false
+            Slider.Image = "rbxassetid://156579757"
+    
+            Slide.Name = "Slide"
+            Slide.Parent = Slider
+            Slide.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+            Slide.BorderSizePixel = 0
+            Slide.Size = UDim2.new(1, 0, 0.0399999991, 0)
+            Slide.ZIndex = 52
+    
+            Colour_2.Name = "Colour"
+            Colour_2.Parent = TextButton
+            Colour_2.AnchorPoint = Vector2.new(0.5, 0.5)
+            Colour_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            Colour_2.BorderSizePixel = 0
+            Colour_2.Position = UDim2.new(0.77506423, 1, 0.5, 0)
+            Colour_2.Size = UDim2.new(5.25, 0, 1, 0)
+            Colour_2.SizeConstraint = Enum.SizeConstraint.RelativeYY
+            Colour_2.ZIndex = 50
+    
+            TextLabel_2.Parent = Colour_2
+            TextLabel_2.BackgroundColor3 = Color3.fromRGB(11, 65, 106)
+            TextLabel_2.BackgroundTransparency = 1
+            TextLabel_2.BorderSizePixel = 0
+            TextLabel_2.Position = UDim2.new(-0.783039451, 0, 0, 0)
+            TextLabel_2.Size = UDim2.new(0.690020859, 0, 1, 0)
+            TextLabel_2.ZIndex = 51
+            TextLabel_2.Font = Enum.Font.SourceSans
+            TextLabel_2.Text = "  255,255,255"
+            TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+            TextLabel_2.TextSize = 14.000
+            TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
+    
+            local function THUF_fake_script() -- Picker.ColorPicker 
+                local script = Instance.new('LocalScript', Picker)
+            
+                --------------------------
+                -- Localize
+                --------------------------
+                local ceil,clamp,atan2,pi	= math.ceil,math.clamp,math.atan2,math.pi
+                local tostr,sub				= tostring,string.sub
+                local fromHSV				= Color3.fromHSV
+                local v2,udim2				= Vector2.new,UDim2.new
+                --------------------------
+                -- GUI Elements
+                --------------------------
+                local wheel		= script.Parent:WaitForChild("Wheel");
+                local ring		= wheel:WaitForChild("Ring");
+                
+                local slider	= wheel:WaitForChild("Slider")
+                local slide		= slider:WaitForChild("Slide")
+                
+                local colour	= script.Parent:WaitForChild("Colour");
+                
+                --------------------------
+                -- Input variables
+                --------------------------
+                local UserInputService	= game:GetService("UserInputService")
+                local Mouse				= game.Players.LocalPlayer:GetMouse()
+                
+                local WheelDown			= false
+                local SlideDown			= false
+                
+                --------------------------
+                -- Math
+                --------------------------
+                
+                local function toPolar(v)
+                    return atan2(v.y, v.x), v.magnitude;
+                end
+                
+                local function radToDeg(x)
+                    return ((x + pi) / (2 * pi)) * 360;
+                end
+                
+                --------------------------
+                -- Color control
+                --------------------------
+                local hue, saturation, value = 0, 0, 1;
+                
+                local function update()
+                    local c = fromHSV(hue, saturation, value);
+                    
+                    Colour_2.BackgroundColor3 = c
+                    colour.BackgroundColor3 = c
+                    Colour_2.TextLabel.Text	=	"  "..sub(tostr(ceil(clamp(c.r*255,0,255))),1,3)..", "..
+                                                sub(tostr(ceil(clamp(c.g*255,0,255))),1,3)..", "..
+                                                sub(tostr(ceil(clamp(c.b*255,0,255))),1,3)
+                    colour.TextLabel.Text	=	"  "..sub(tostr(ceil(clamp(c.r*255,0,255))),1,3)..", "..
+                                                sub(tostr(ceil(clamp(c.g*255,0,255))),1,3)..", "..
+                                                sub(tostr(ceil(clamp(c.b*255,0,255))),1,3)
+                    interaction(c,colour.TextLabel.Text)
+                end
+                
+                --------------------------
+                -- GUI control
+                --------------------------
+                local function UpdateSlide(iX,iY)	
+                    local rY = iY - slider.AbsolutePosition.y;
+                    local cY = clamp(rY, 0, slider.AbsoluteSize.y - slide.AbsoluteSize.y);
+                    slide.Position = udim2(0, 0, 0, cY);
+                    
+                    value = 1 - (cY / (slider.AbsoluteSize.y - slide.AbsoluteSize.y));
+                    slide.BackgroundColor3 = fromHSV(0, 0, 1-value);
+                    
+                    update();
+                end
+                local function UpdateRing(iX,iY)
+                    local r = wheel.AbsoluteSize.x/2
+                    local d = v2(iX, iY) - wheel.AbsolutePosition - wheel.AbsoluteSize/2;
+                
+                    if (d:Dot(d) > r*r) then
+                        d = d.unit * r;
+                    end
+                    
+                    ring.Position = udim2(0.5, d.x, 0.5, d.y);
+                    
+                    local phi, len = toPolar(d * v2(1, -1));
+                    hue, saturation = radToDeg(phi)/360, len / r;
+                    slider.BackgroundColor3 = fromHSV(hue, saturation, 1);
+                    
+                    update();
+                end
+                
+                
+                wheel.MouseButton1Down:Connect(function()
+                    WheelDown = true
+                    UpdateRing(Mouse.X,Mouse.Y)
+                end)
+                slider.MouseButton1Down:Connect(function()
+                    SlideDown = true
+                    UpdateSlide(Mouse.X,Mouse.Y)
+                end)
+                
+                
+                UserInputService.InputEnded:Connect(function(input)
+                    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                        WheelDown = false
+                        SlideDown = false
+                    end
+                end)
+                
+                wheel.MouseMoved:Connect(function()
+                    if WheelDown then
+                        UpdateRing(Mouse.X,Mouse.Y)
+                    end
+                end)
+                slider.MouseMoved:Connect(function()
+                    if SlideDown then
+                        UpdateSlide(Mouse.X,Mouse.Y)
+                    end
+                end)
+            end
+            coroutine.wrap(THUF_fake_script)()
+    
+            TextButton.MouseButton1Click:Connect(function()
+                Picker.Visible = not Picker.Visible
+            end)
+    
+            right.MouseButton1Click:Connect(function()
+                Picker.Visible = not Picker.Visible
+            end)
+    
+            TextButton.MouseEnter:Connect(function()
+                TextButton.BackgroundTransparency = 0
+            end)
+            
+            TextButton.MouseLeave:Connect(function()
+                TextButton.BackgroundTransparency = 1
+            end)
+    
+            right.MouseEnter:Connect(function()
+                TextButton.BackgroundTransparency = 0
+            end)
+            
+            right.MouseLeave:Connect(function()
                 TextButton.BackgroundTransparency = 1
             end)
         end
