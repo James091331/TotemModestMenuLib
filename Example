@@ -1,5 +1,5 @@
 local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/Xv3nm/TotemModestMenuLib/main/source')))()
-local Window = library:CreateWindow("",true) -- Leaving name blank reverts to default : Totem's Modest Menu Lib v0.3.6
+local Window = library:CreateWindow("",true)
 
 Window:NewLabel("Text Label Example")
 
@@ -21,6 +21,12 @@ Window:NewValueSelection("Value Selection",8,128,8,16,function(selection)
     print(selection)
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = selection
 end)
+
+Window:NewColorPicker("Color Picker",function(hsv,rgb) -- Color Picker returns hsv and rgb.
+    print(hsv)
+    print(rgb)
+end)
+
 Window:NewParagraph("This is a paragraph that I can type and explain my script with without being cucked. I can also edit the font size because this lib is cool like that.",0.069,14,false)
 
 Window:NewParagraph("",0.169420) -- Example of how you can use NewParagraph spacing for invisible spacing between elements.
@@ -37,6 +43,6 @@ Window:NewToggle("Dangerous Toggle",false, -- Create a 'dangerous' toggle
     
 Window:NewParagraph("This is a warning paragraph that I can type and explain a warning about my script. I can still edit the font size even while warning since this lib is cool like that.",0.069,14,true)
 
-Window:NewParagraph("",0.37,14,false) --This is a NewParagraph used to space
+Window:NewParagraph("",0.34,14,false) --This is a NewParagraph used to space
 
 Window:DestroyGuiButton()
