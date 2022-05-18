@@ -1,5 +1,8 @@
 local Library = {}
 
+print('Library Made by Totem#7908')                  -- Testing purposes
+print('https://github.com/Xv3nm/TotemModestMenuLib') -- Testing purposes
+
 function Library:CreateWindow(titleText,prompt)
     local ModestLib = Instance.new("ScreenGui")
     local Window = Instance.new("Frame")
