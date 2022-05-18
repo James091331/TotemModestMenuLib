@@ -7,13 +7,6 @@ prompt:setParent(gui)
 prompt:setErrorTitle("Totem's Modest Menu Lib")
 prompt:updateButtons({{
    Text = "<3",
-   Callback = function() prompt:_close()
-      pcall(function()
-           getgenv().radiowaveswhyhaveidonethis = true
-       end)
-   end,
-}, {
-   Text = "<3",
    Callback = function() prompt:_close() 
        pcall(function()
            getgenv().radiowaveswhyhaveidonethis = true
