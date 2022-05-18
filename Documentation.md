@@ -86,6 +86,18 @@ To keep away from lagging the game code will not execute until you release your 
 ]]
 ```
 
+## Creating color pickers
+```lua
+Window:NewColorPicker("Color Picker",function(hsv,rgb) -- Color Picker returns hsv and rgb. In that order
+    print(hsv)
+    print(rgb)
+end)
+--[[
+Name = The text or name of the color picker.
+Function = Code executed after every time the color is changed.
+]]
+```
+
 
 ## Creating a Label
 ```lua
