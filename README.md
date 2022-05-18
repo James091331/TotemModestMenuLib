@@ -8,7 +8,7 @@ My first and only publicly released library
 
 ## Preview
 
-<img align="left" alt="Preview" src="https://i.imgur.com/v1x9ijG.png" />
+<img align="left" alt="Preview" src="https://i.imgur.com/dZIzbRh.png" />
 
 
 ## Made by Totem#7908 | Contact Me
