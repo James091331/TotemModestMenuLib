@@ -1,9 +1,4 @@
 local Library = {}
-
---[[
-    TODO : Color Picker
-]]
-
 function Library:CreateWindow(titleText,prompt)
     local ModestLib = Instance.new("ScreenGui")
     local Window = Instance.new("Frame")
